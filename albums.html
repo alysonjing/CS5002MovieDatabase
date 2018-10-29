@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Best-selling albums</title>
+  <script src="newAlbums.js"></script>
+  <script src="albums.js"></script>
+  <style>
+    h1 {
+      text-align: center;
+      padding: 10px;
+      background-color: lightgray;
+    }
+
+    body,
+    h2 {
+      text-align: center;
+    }
+
+    #selectionBar {
+      padding-bottom: 10px;
+    }
+
+    table,
+    th,
+    td {
+      margin: auto;
+      border-bottom: 3px solid black;
+      border-collapse: collapse;
+      padding-top: 5px;
+      padding-right: 10px;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>BEST SELLING ALBUMS</h1>
+  <h2>A list of best-selling albums by year and by country</h2>
+  <div id="selectionBar">
+    <label for="selectYear">Please select a year: </label>
+    <select id="selectYear" ></select>
+    <script>
+      var select = document.getElementById("selectYear");
+      select.options[select.options.length] = new Option("All");
+      for (var i = 1956; i <= 2016; i++) {
+        select.options[select.options.length] = new Option(i, i);
+      }
+    </script>
+    <label for="selectCountry"> Please select a country of origin: </label>
+    <select id="selectCountry" >
+    <option value="All">All</option>
+    <option value="United States">United States</option>
+    <option value="United Kingdom">United Kingdom</option>
+  </select>
+    <label for="surprise"> Do you want a SURPRISE? </label>
+    <select id="surprise" onchange="initialize()">
+    <option value="choose">Please choose</option>
+    <option value="Y">Yes</option>
+    <option value="N">No</option>
+  </select>
+    <button id="click">Go</button>
+
+  </div>
+  <div id="noSurprise" style="padding:10px;  display:none">
+    <img src="https://i.ytimg.com/vi/Yj7ja6BANLM/maxresdefault.jpg" style="width:300px;height:200px;">
+  </div>
+
+  <div id="list">
+    <table id="hitsTable">
+      <tr>
+        <th>Year</th>
+        <th>Artist</th>
+        <th>Nationality</th>
+        <th>Album</th>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>
